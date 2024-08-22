@@ -4,8 +4,8 @@ import './Stepper.css';
 
 const fetchTTS = async (text) => {
     try {
-        const response = await axios.post('http://localhost:3001/api/tts', { text });
-        return `http://localhost:3001${response.data.audioUrl}`;
+        const response = await axios.post('${process.env.REACT_APP_API_URL}/api/tts', { text });
+        return `${process.env.REACT_APP_API_URL}${response.data.audioUrl}`;
     } catch (error) {
         console.error("Error fetching TTS audio:", error);
         return null;
