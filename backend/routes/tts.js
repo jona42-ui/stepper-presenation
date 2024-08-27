@@ -39,7 +39,10 @@ router.post('/', async (req, res) => {
 
     if (text.length > 200) {
         return res.status(400).send('Text length exceeds the limit of 200 characters.');
+        
     }
+
+    console.log(res);
 
     try {
         const url = googleTTS.getAudioUrl(text, {
