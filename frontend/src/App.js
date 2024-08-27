@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css'; // Import your CSS for styling
+import './App.css'; 
 import Presentation from './pages/Presentation';
 
 function App() {

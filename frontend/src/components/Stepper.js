@@ -1,62 +1,54 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import './Stepper.css';  
+import './Stepper.css'; 
+import { TiTick } from 'react-icons/ti';
 
 const fetchTTS = async (text) => {
     try {
-        const response = await axios.post('${process.env.REACT_APP_API_URL}/api/tts', { text });
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/tts`, { text });
         return `${process.env.REACT_APP_API_URL}${response.data.audioUrl}`;
+        
     } catch (error) {
         console.error("Error fetching TTS audio:", error);
         return null;
     }
+
 };
 
 const Stepper = ({ steps }) => {
     const [currentStep, setCurrentStep] = useState(0);
-    const [introSteps, setIntroSteps] = useState([]);
+    const [currentSection, setCurrentSection] = useState(0);
     const [audioUrls, setAudioUrls] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [audioIndex, setAudioIndex] = useState(0);
-    const [displayContent, setDisplayContent] = useState('');
     const videoRef = useRef(null);
     const audioRef = useRef(null);
 
     useEffect(() => {
-        // Filter "Introduction" steps and load their audio URLs
-        const loadIntroSteps = async () => {
-            const filteredSteps = steps.filter(step => step.title === 'Introduction');
-            const urls = await Promise.all(filteredSteps.map(step => fetchTTS(step.audioText)));
-            setIntroSteps(filteredSteps);
-            setAudioUrls(urls);
+        // Load audio URLs for the current step's sections
+        const loadAudioUrls = async () => {
+            if (steps[currentStep]?.sections) {
+                const urls = await Promise.all(
+                    steps[currentStep].sections.map(section => fetchTTS(section.audioText))
+                );
+                console.log(urls);
+                setAudioUrls(urls);
+                setCurrentSection(0); // Reset section to the first one
+            }
         };
+        
 
-        loadIntroSteps();
-    }, [steps]);
-
-    useEffect(() => {
-        // Update display content based on the current audio index
-        if (introSteps[audioIndex]) {
-            setDisplayContent(introSteps[audioIndex].content);
-        }
-    }, [audioIndex, introSteps]);
+        loadAudioUrls();
+    }, [steps, currentStep]);
 
     useEffect(() => {
-        // Update display content based on the current step
-        if (steps[currentStep]) {
-            setDisplayContent(steps[currentStep].content);
-        }
-    }, [currentStep, steps]);
-
-    useEffect(() => {
-        // Play audio sequentially
-        if (isPlaying && audioUrls.length > 0 && audioIndex < audioUrls.length) {
+        // Play audio for the current section
+        if (isPlaying && audioUrls[currentSection]) {
             if (audioRef.current) {
-                audioRef.current.src = audioUrls[audioIndex];
+                audioRef.current.src = audioUrls[currentSection];
                 audioRef.current.play();
             }
         }
-    }, [isPlaying, audioIndex, audioUrls]);
+    }, [isPlaying, currentSection, audioUrls]);
 
     const findNextStepIndex = (direction) => {
         const currentTitle = steps[currentStep]?.title;
@@ -79,34 +71,62 @@ const Stepper = ({ steps }) => {
             }
         }
 
-        // If no different title found, return the current index
         return currentStep;
     };
 
     const handleNext = () => {
-        setCurrentStep(findNextStepIndex('next'));
+        if (currentSection < steps[currentStep].sections.length - 1) {
+            // Move to the next section within the current step
+            setCurrentSection(currentSection + 1);
+        } else {
+            // Check if there are more steps available
+            const nextStep = findNextStepIndex('next');
+            
+            if (nextStep === currentStep) {
+                // If nextStep is the same as currentStep, it means there are no more steps to move to
+                console.log("You are already at the last step.");
+                return; // Prevent moving further
+            }
+            
+            // Move to the next step and reset section index
+            setCurrentStep(nextStep);
+            setCurrentSection(0);
+        }
     };
 
     const handlePrevious = () => {
-        setCurrentStep(findNextStepIndex('previous'));
+        if (currentSection > 0) {
+            setCurrentSection(currentSection - 1);
+        } else {
+            // Move to the previous step and reset section index
+            const prevStep = findNextStepIndex('previous');
+            setCurrentStep(prevStep);
+            setCurrentSection(0);
+        }
     };
-
 
     const handleStart = () => {
         if (videoRef.current) {
-            videoRef.current.currentTime = 0;
             videoRef.current.play();
         }
         setIsPlaying(true);
     };
 
+    const handlePause = () => {
+        if (videoRef.current) {
+            videoRef.current.pause();
+        }
+        setIsPlaying(false);
+    };
+
     useEffect(() => {
         const handleAudioEnd = () => {
-            if (audioIndex < audioUrls.length - 1) {
-                setAudioIndex(prevIndex => prevIndex + 1); // Move to the next audio URL
+            if (currentSection < audioUrls.length - 1) {
+                setCurrentSection(currentSection + 1); // Move to the next section
             } else {
-                setIsPlaying(false); // Stop playing when all are finished
-                setAudioIndex(0); // Reset audio index
+                // All sections of the current step are done
+                handleNext(); // Proceed to the next step
+                setIsPlaying(false); 
             }
         };
 
@@ -119,23 +139,40 @@ const Stepper = ({ steps }) => {
                 audioRef.current.removeEventListener('ended', handleAudioEnd);
             }
         };
-    }, [audioIndex, audioUrls.length]);
+    }, [currentSection, audioUrls.length]);
 
     return (
         <div className="stepper-container">
+            <div className="progress-bar">
+                {steps.map((step, index) => (
+                    <div
+                        key={index}
+                        className={`step-item ${currentStep === index ? "active" : ""} ${index < currentStep ? "complete" : ""}`}
+                    >
+                        <div className="step">
+                            {index < currentStep ? <TiTick size={24} /> : index + 1}
+                        </div>
+                        <p>{step.title}</p>
+                    </div>
+                ))}
+            </div>
             <div className="stepper-content">
                 <div className="stepper-text">
-                    <h2>{steps[currentStep]?.title}</h2>
-                    <p>{displayContent}</p>
+                    <h1>{steps[currentStep]?.sections[currentSection]?.section}</h1>
+                    <p>{steps[currentStep]?.sections[currentSection]?.content}</p>
                 </div>
                 <div className="stepper-video">
-                    <video ref={videoRef} src={steps[currentStep]?.videoUrl} />
+                    <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
                     {audioUrls.length > 0 && <audio ref={audioRef} />}
                 </div>
             </div>
             <div className="controls">
                 <button onClick={handlePrevious}>Previous</button>
-                <button onClick={handleStart} disabled={isPlaying}>Start</button>
+                {isPlaying ? (
+                    <button onClick={handlePause}>Pause</button>
+                ) : (
+                    <button onClick={handleStart}>Start</button>
+                )}
                 <button onClick={handleNext}>Next</button>
             </div>
         </div>

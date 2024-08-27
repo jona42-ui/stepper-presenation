@@ -1,59 +1,133 @@
-{
+  {
     "Tooth Extraction": [
       {
         "title": "Introduction",
-        "content": "hi Elvis, Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-        "videoUrl": "videos/intro.mp4",
-        "audioText": "hi Elvis,Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+        "sections": [
+          {
+            "section": "What is Tooth Extraction?",
+            "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+          },
+          {
+            "section": "Why you need Tooth Extration",
+            "content": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+          },
+          {
+            "section": "What Tooth Extraction Removes",
+            "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+          },
+          {
+            "section": "Where it is done",
+            "content": " It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+          },
+          {
+            "section": "The kind of Tooth it addresses",
+            "content": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+          }
+        ]
       },
       {
-        "title": "Introduction",
-        "content": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-        "videoUrl": "videos/intro.mp4",
-        "audioText": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-      },
+        "title": "Reasons for Tooth Extraction",
+        "sections": [
+          {
+            "section": "Overview of Tooth Extraction",
+            "content": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone."
+          },
+          {
+            "section": "Common Reasons for Extraction",
+            "content": "One of the most common reasons for tooth extraction is severe tooth decay. ",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "One of the most common reasons for tooth extraction is severe tooth decay. "
+          },
+          {
+            "section": "Orthodontic Reasons for Extraction",
+            "content": "In some cases, teeth may be extracted as part of orthodontic treatment. ",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "In some cases, teeth may be extracted as part of orthodontic treatment."
+          }
+        ]
+      },      
       {
-        "title": "Introduction",
-        "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-        "videoUrl": "videos/intro.mp4",
-        "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-      },
+        "title": "Benefits of Tooth Extraction",
+        "sections": [
+          {
+            "section": "Preventing the Spread of Infection",
+            "content": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection."
+          },
+          {
+            "section": "Alleviating Pain and Discomfort",
+            "content": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life."
+          },
+          {
+            "section": "Protecting Overall Oral Health",
+            "content": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene."
+          },
+          {
+            "section": "Facilitating Orthodontic Treatment",
+            "content": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile."
+          }
+        ]
+      },      
       {
-        "title": "Introduction",
-        "content": " It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-        "videoUrl": "videos/intro.mp4",
-        "audioText": "It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-      },
-      {
-        "title": "Introduction",
-        "content": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-        "videoUrl": "videos/intro.mp4",
-        "audioText": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-      },
-      {
-        "title": "Reason for Extraction",
-        "content": "Teeth are extracted for various reasons, including severe decay, infection, or damage from trauma.",
-        "videoUrl": "videos/reason.mp4",
-        "audioText": "Teeth are extracted for various reasons, including severe decay, infection, or damage from trauma."
-      },
-      {
-        "title": "Benefits of the Procedure",
-        "content": "Removing a decayed tooth can prevent the spread of infection and alleviate pain.",
-        "videoUrl": "videos/benefits.mp4",
-        "audioText": "Removing a decayed tooth can prevent the spread of infection and alleviate pain."
-      },
-      {
-        "title": "Risks Involved",
-        "content": "Though rare, risks include infection, bleeding, and dry socket.",
-        "videoUrl": "videos/risks.mp4",
-        "audioText": "Though rare, risks include infection, bleeding, and dry socket."
-      },
+        "title": "Risks Involved in Tooth Extraction",
+        "sections": [
+          {
+            "section": "Infection Risk",
+            "content": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever."
+          },
+          {
+            "section": "Bleeding and Hemorrhage",
+            "content": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation."
+          },
+          {
+            "section": "Dry Socket (Alveolar Osteitis)",
+            "content": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment."
+          }
+        ]
+      },      
       {
         "title": "Procedure Overview",
-        "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
-        "videoUrl": "videos/procedure.mp4",
-        "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
+        "sections": [
+          {
+            "section": "Procedure one",
+            "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
+          },
+          {
+            "section": "Procedure Two",
+            "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
+            "videoUrl": "videos/intro.mp4",
+            "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
+          }
+        ]
       }
     ]
   }
+  
   

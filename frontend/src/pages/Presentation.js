@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Stepper from '../components/Stepper';
 import treatmentsData from '../data/treatments.json';
-import './Presentation.css';  // Import CSS for styling
+import './Presentation.css'; 
 
 const Presentation = () => {
     const [selectedTreatment, setSelectedTreatment] = useState("Tooth Extraction");
