@@ -1,133 +1,329 @@
-  {
-    "Tooth Extraction": [
-      {
-        "title": "Introduction",
-        "sections": [
-          {
-            "section": "What is Tooth Extraction?",
-            "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-          },
-          {
-            "section": "Why you need Tooth Extration",
-            "content": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Troublesome tooth? Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-          },
-          {
-            "section": "What Tooth Extraction Removes",
-            "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-          },
-          {
-            "section": "Where it is done",
-            "content": " It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-          },
-          {
-            "section": "The kind of Tooth it addresses",
-            "content": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
-          }
-        ]
-      },
-      {
-        "title": "Reasons for Tooth Extraction",
-        "sections": [
-          {
-            "section": "Overview of Tooth Extraction",
-            "content": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone."
-          },
-          {
-            "section": "Common Reasons for Extraction",
-            "content": "One of the most common reasons for tooth extraction is severe tooth decay. ",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "One of the most common reasons for tooth extraction is severe tooth decay. "
-          },
-          {
-            "section": "Orthodontic Reasons for Extraction",
-            "content": "In some cases, teeth may be extracted as part of orthodontic treatment. ",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "In some cases, teeth may be extracted as part of orthodontic treatment."
-          }
-        ]
-      },      
-      {
-        "title": "Benefits of Tooth Extraction",
-        "sections": [
-          {
-            "section": "Preventing the Spread of Infection",
-            "content": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection."
-          },
-          {
-            "section": "Alleviating Pain and Discomfort",
-            "content": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life."
-          },
-          {
-            "section": "Protecting Overall Oral Health",
-            "content": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene."
-          },
-          {
-            "section": "Facilitating Orthodontic Treatment",
-            "content": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile."
-          }
-        ]
-      },      
-      {
-        "title": "Risks Involved in Tooth Extraction",
-        "sections": [
-          {
-            "section": "Infection Risk",
-            "content": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever."
-          },
-          {
-            "section": "Bleeding and Hemorrhage",
-            "content": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation."
-          },
-          {
-            "section": "Dry Socket (Alveolar Osteitis)",
-            "content": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment."
-          }
-        ]
-      },      
-      {
-        "title": "Procedure Overview",
-        "sections": [
-          {
-            "section": "Procedure one",
-            "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
-          },
-          {
-            "section": "Procedure Two",
-            "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
-            "videoUrl": "videos/intro.mp4",
-            "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
-          }
-        ]
-      }
-    ]
-  }
-  
-  
+{
+  "Tooth Extraction": [
+    {
+      "title": "Introduction",
+      "sections": [
+        {
+          "section": "What is Tooth Extraction?",
+          "content": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction removes damaged or decayed teeth. It’s done in your dentist's office with local numbing. This prevents pain and infections, keeping your mouth healthy"
+        },
+        {
+          "section": "Why you need Tooth Extration",
+          "content": "You may need a tooth extraction due to severe decay, damage, or overcrowding that cannot be treated with other dental procedures.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "You may need a tooth extraction due to severe decay, damage, or overcrowding that cannot be treated with other dental procedures."
+        },
+        {
+          "section": "What Tooth Extraction Removes",
+          "content": "Tooth extraction removes the entire tooth, including its root, from the socket in the jawbone.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction removes the entire tooth, including its root, from the socket in the jawbone."
+        },
+        {
+          "section": "Where it is done",
+          "content": "Tooth extraction is typically done in a dental office or an oral surgery clinic by a dentist or oral surgeon",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction is typically done in a dental office or an oral surgery clinic by a dentist or oral surgeon"
+        },
+        {
+          "section": "The kind of Tooth it addresses",
+          "content": "Tooth extraction addresses any type of tooth, including wisdom teeth, molars, premolars, canines, or incisors, that is damaged, decayed, impacted, or causing other dental issues",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction addresses any type of tooth, including wisdom teeth, molars, premolars, canines, or incisors, that is damaged, decayed, impacted, or causing other dental issues"
+        }
+      ]
+    },
+    {
+      "title": "Reasons",
+      "sections": [
+        {
+          "section": "Overview of Tooth Extraction",
+          "content": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction is a procedure where a tooth is removed from its socket in the bone."
+        },
+        {
+          "section": "Common Reasons for Extraction",
+          "content": "One of the most common reasons for tooth extraction is severe tooth decay.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "One of the most common reasons for tooth extraction is severe tooth decay."
+        },
+        {
+          "section": "Orthodontic Reasons for Extraction",
+          "content": "In some cases, teeth may be extracted as part of orthodontic treatment.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "In some cases, teeth may be extracted as part of orthodontic treatment."
+        }
+      ]
+    },
+    {
+      "title": "Benefits",
+      "sections": [
+        {
+          "section": "Preventing the Spread of Infection",
+          "content": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "One of the primary benefits of tooth extraction, especially in cases of severe decay, is the prevention of infection."
+        },
+        {
+          "section": "Alleviating Pain and Discomfort",
+          "content": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Extracting a problematic tooth can provide immediate relief from pain and discomfort, improving your quality of life."
+        },
+        {
+          "section": "Protecting Overall Oral Health",
+          "content": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene."
+        },
+        {
+          "section": "Facilitating Orthodontic Treatment",
+          "content": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Tooth extraction can create the space needed to properly align the remaining teeth, improving both the aesthetics and function of your smile."
+        }
+      ]
+    },
+    {
+      "title": "Risks",
+      "sections": [
+        {
+          "section": "Infection Risk",
+          "content": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Bacteria can enter the extraction site and cause an infection, presenting symptoms such as swelling, redness, or fever."
+        },
+        {
+          "section": "Bleeding and Hemorrhage",
+          "content": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Excessive bleeding after tooth extraction can be managed by applying pressure with gauze and avoiding activities that disrupt clot formation."
+        },
+        {
+          "section": "Dry Socket (Alveolar Osteitis)",
+          "content": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Dry socket occurs when the protective blood clot is dislodged, exposing the bone and causing intense pain that requires prompt treatment."
+        }
+      ]
+    },
+    {
+      "title": "Procedure",
+      "sections": [
+        {
+          "section": "Procedure one",
+          "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
+        },
+        {
+          "section": "Procedure Two",
+          "content": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "The procedure involves numbing the area, loosening the tooth, and then extracting it. Recovery typically takes a few days."
+        }
+      ]
+    }
+  ],
+  "Root Canal": [
+    {
+      "title": "Introduction",
+      "sections": [
+        {
+          "section": "What is a Root Canal?",
+          "content": "A root canal is a dental procedure to remove infected or damaged pulp from inside a tooth. It helps save the tooth and relieve pain.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "A root canal is a dental procedure to remove infected or damaged pulp from inside a tooth. It helps save the tooth and relieve pain."
+        },
+        {
+          "section": "Why you need a Root Canal",
+          "content": "You may need a root canal due to severe decay, repeated dental procedures, or trauma that causes pulp damage.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "You may need a root canal due to severe decay, repeated dental procedures, or trauma that causes pulp damage."
+        }
+      ]
+    },
+    {
+      "title": "Benefits",
+      "sections": [
+        {
+          "section": "Preserving the Tooth",
+          "content": "A root canal allows you to keep your natural tooth, which is essential for chewing and maintaining proper alignment of your other teeth.",
+          "videoUrl": "videos/benefits.mp4",
+          "audioText": "A root canal allows you to keep your natural tooth, which is essential for chewing and maintaining proper alignment of your other teeth."
+        },
+        {
+          "section": "Relieving Pain",
+          "content": "The procedure removes the infected or damaged pulp, providing relief from the pain and discomfort associated with pulp damage.",
+          "videoUrl": "videos/benefits.mp4",
+          "audioText": "The procedure removes the infected or damaged pulp, providing relief from the pain and discomfort associated with pulp damage."
+        }
+      ]
+    },
+    {
+      "title": "Risks",
+      "sections": [
+        {
+          "section": "Incomplete Removal",
+          "content": "Sometimes, not all infected tissue is removed, which could lead to persistent or recurring infection.",
+          "videoUrl": "videos/risks.mp4",
+          "audioText": "Sometimes, not all infected tissue is removed, which could lead to persistent or recurring infection."
+        },
+        {
+          "section": "Damage to Adjacent Teeth",
+          "content": "There is a small risk that the procedure could damage neighboring teeth or structures in the mouth.",
+          "videoUrl": "videos/risks.mp4",
+          "audioText": "There is a small risk that the procedure could damage neighboring teeth or structures in the mouth."
+        }
+      ]
+    },
+    {
+      "title": "Procedure",
+      "sections": [
+        {
+          "section": "Initial Examination",
+          "content": "Your dentist will examine your tooth using X-rays and determine if a root canal is necessary.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "Your dentist will examine your tooth using X-rays and determine if a root canal is necessary."
+        },
+        {
+          "section": "Removing the Pulp",
+          "content": "The dentist will make an opening in the tooth to access and remove the infected pulp.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "The dentist will make an opening in the tooth to access and remove the infected pulp."
+        },
+        {
+          "section": "Filling and Sealing",
+          "content": "After cleaning the root canals, they are filled with a special material and sealed to prevent future infection.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "After cleaning the root canals, they are filled with a special material and sealed to prevent future infection."
+        },
+        {
+          "section": "Restoration",
+          "content": "A crown or filling is placed on the tooth to restore its function and appearance.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "A crown or filling is placed on the tooth to restore its function and appearance."
+        }
+      ]
+    },
+    {
+      "title": "Procedure",
+      "sections": [
+        {
+          "section": "Root Canal Procedure",
+          "content": "The procedure involves removing the pulp, cleaning the inside of the tooth, and sealing it. The tooth is then restored with a crown.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "The procedure involves removing the pulp, cleaning the inside of the tooth, and sealing it. The tooth is then restored with a crown."
+        }
+      ]
+    }
+  ],
+  "Teeth Whitening": [
+    {
+      "title": "Introduction",
+      "sections": [
+        {
+          "section": "What is Teeth Whitening?",
+          "content": "Teeth whitening is a cosmetic procedure to lighten the color of your teeth. It can be done in a dental office or with at-home kits.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Teeth whitening is a cosmetic procedure to lighten the color of your teeth. It can be done in a dental office or with at-home kits."
+        }
+      ]
+    },
+    {
+      "title": "Benefits",
+      "sections": [
+        {
+          "section": "Improved Appearance",
+          "content": "Whitening your teeth can enhance your smile, boosting your confidence and self-esteem.",
+          "videoUrl": "videos/benefits.mp4",
+          "audioText": "Whitening your teeth can enhance your smile, boosting your confidence and self-esteem."
+        }
+      ]
+    },
+    {
+      "title": "Types of Whitening",
+      "sections": [
+        {
+          "section": "In-Office Whitening",
+          "content": "In-office whitening is performed by a dental professional using stronger whitening agents for faster and more noticeable results.",
+          "videoUrl": "videos/types.mp4",
+          "audioText": "In-office whitening is performed by a dental professional using stronger whitening agents for faster and more noticeable results."
+        },
+        {
+          "section": "At-Home Kits",
+          "content": "At-home whitening kits are available over the counter or from your dentist and typically involve trays or strips that apply a whitening gel to your teeth.",
+          "videoUrl": "videos/types.mp4",
+          "audioText": "At-home whitening kits are available over the counter or from your dentist and typically involve trays or strips that apply a whitening gel to your teeth."
+        },
+        {
+          "section": "Whitening Toothpaste",
+          "content": "Whitening toothpaste helps to remove surface stains and may contain mild abrasives or chemicals that lighten tooth color over time.",
+          "videoUrl": "videos/types.mp4",
+          "audioText": "Whitening toothpaste helps to remove surface stains and may contain mild abrasives or chemicals that lighten tooth color over time."
+        }
+      ]
+    },
+    {
+      "title": "Procedure",
+      "sections": [
+        {
+          "section": "In-Office Procedure",
+          "content": "The dentist applies a high-concentration whitening gel to your teeth and may use a special light to enhance the effect. This usually takes about an hour.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "The dentist applies a high-concentration whitening gel to your teeth and may use a special light to enhance the effect. This usually takes about an hour."
+        },
+        {
+          "section": "At-Home Procedure",
+          "content": "For at-home kits, you apply a whitening gel using trays or strips as directed. Treatment times vary, but results typically appear after a few weeks.",
+          "videoUrl": "videos/procedure.mp4",
+          "audioText": "For at-home kits, you apply a whitening gel using trays or strips as directed. Treatment times vary, but results typically appear after a few weeks."
+        }
+      ]
+    }
+  ],
+  "Dental Implants": [
+    {
+      "title": "Introduction",
+      "sections": [
+        {
+          "section": "What are Dental Implants?",
+          "content": "Dental implants are artificial tooth roots placed into the jawbone to support a replacement tooth or bridge.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Dental implants are artificial tooth roots placed into the jawbone to support a replacement tooth or bridge."
+        }
+      ]
+    },
+    {
+      "title": "Procedure",
+      "sections": [
+        {
+          "section": "Implant Placement",
+          "content": "The procedure involves placing a titanium post into the jawbone, allowing it to integrate with the bone before placing the crown or bridge.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "The procedure involves placing a titanium post into the jawbone, allowing it to integrate with the bone before placing the crown or bridge."
+        }
+      ]
+    },
+    {
+      "title": "Aftercare",
+      "sections": [
+        {
+          "section": "Avoid Staining Foods and Drinks",
+          "content": "To maintain your whitening results, avoid foods and beverages that can stain your teeth, such as coffee, tea, and red wine.",
+          "videoUrl": "videos/aftercare.mp4",
+          "audioText": "To maintain your whitening results, avoid foods and beverages that can stain your teeth, such as coffee, tea, and red wine."
+        },
+        {
+          "section": "Maintain Good Oral Hygiene",
+          "content": "Brush and floss regularly to keep your teeth healthy and white. Use toothpaste designed for whitening to help maintain the results.",
+          "videoUrl": "videos/aftercare.mp4",
+          "audioText": "Brush and floss regularly to keep your teeth healthy and white. Use toothpaste designed for whitening to help maintain the results."
+        }
+      ]
+    }
+  ]
+}

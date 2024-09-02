@@ -12,7 +12,6 @@ const fetchTTS = async (text) => {
         console.error("Error fetching TTS audio:", error);
         return null;
     }
-
 };
 
 const Stepper = ({ steps }) => {
@@ -30,12 +29,10 @@ const Stepper = ({ steps }) => {
                 const urls = await Promise.all(
                     steps[currentStep].sections.map(section => fetchTTS(section.audioText))
                 );
-                console.log(urls);
                 setAudioUrls(urls);
                 setCurrentSection(0); // Reset section to the first one
             }
         };
-        
 
         loadAudioUrls();
     }, [steps, currentStep]);
@@ -141,6 +138,11 @@ const Stepper = ({ steps }) => {
         };
     }, [currentSection, audioUrls.length]);
 
+    const handleStepClick = (index) => {
+        setCurrentStep(index);
+        setCurrentSection(0);
+    };
+
     return (
         <div className="stepper-container">
             <div className="progress-bar">
@@ -148,11 +150,12 @@ const Stepper = ({ steps }) => {
                     <div
                         key={index}
                         className={`step-item ${currentStep === index ? "active" : ""} ${index < currentStep ? "complete" : ""}`}
+                        onClick={() => handleStepClick(index)}
                     >
                         <div className="step">
                             {index < currentStep ? <TiTick size={24} /> : index + 1}
                         </div>
-                        <p>{step.title}</p>
+                        <span className="step-title">{step.title}</span>
                     </div>
                 ))}
             </div>
@@ -160,6 +163,9 @@ const Stepper = ({ steps }) => {
                 <div className="stepper-text">
                     <h1>{steps[currentStep]?.sections[currentSection]?.section}</h1>
                     <p>{steps[currentStep]?.sections[currentSection]?.content}</p>
+                    <div className="section-progress">
+                        {`${currentSection + 1} / ${steps[currentStep]?.sections.length}`}
+                    </div>
                 </div>
                 <div className="stepper-video">
                     <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
