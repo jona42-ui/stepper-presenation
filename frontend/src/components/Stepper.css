@@ -2,22 +2,25 @@
 .stepper-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    margin: 30px; /* Adjusted margin for better spacing */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove margins to avoid overflow */
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding doesn't affect height */
 }
 
 /* Main content area */
 .stepper-content {
     display: flex;
     flex: 1;
-    overflow: hidden; /* Prevent content overflow */
-    margin: 0; /* Remove default margins */
-    padding: 20px; /* Keep padding for spacing */
+    margin: 0;
+    padding: 20px;
+    overflow: hidden; /* Prevent overflow */
 }
 
 /* Ensure the text and video sections take equal space */
 .stepper-text, .stepper-video {
     flex: 1;
+    overflow: hidden; /* Prevent overflow */
 }
 
 .card {
@@ -25,29 +28,18 @@
     flex-direction: column;
     border-radius: 20px;
     background-color: #ffffff;
-    padding: 0; /* Remove padding inside the card */
-    margin-bottom: 20px; /* Remove margin around the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    height: calc(100vh - 60px); /* Adjust to avoid vertical scrolling */
-    overflow-y: auto; /* Allow scrolling inside the card if content overflows */
+    padding: 0;
+    margin: 20px; /* Remove margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 160px); /* Full height minus top-bar and controls */
+    overflow: hidden; /* Disable vertical scrolling */
 }
 
 /* Content section on the left */
 .stepper-text {
     flex: 1;
     padding: 20px;
-    overflow-y: auto;
-    background-color: #ffffff;
-}
-
-.section-title {
-    background-color: #f8f9fa;
-    padding: 20px;
-    text-align: left;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 0;
-    border-radius: 20px;
+    overflow: auto; /* Allow content scrolling only inside this section */
 }
 
 /* Video section on the right */
@@ -65,6 +57,47 @@
     max-height: 100%;
     object-fit: contain;
 }
+
+/* Controls section */
+.controls {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    height: 60px; /* Set fixed height */
+}
+
+/* Button styles */
+.controls button {
+    padding: 10px 20px;
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.controls button:hover {
+    background-color: #0284c7;
+}
+
+/* Top bar styling */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    margin-bottom: 0;
+    height: 60px; /* Set fixed height */
+}
+
 
 /* Progress bar for step navigation */
 .progress-bar {
@@ -130,7 +163,7 @@
     color: #333;
     border-radius: 20px;
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: #f1f5f9;
     border-top: 0.5px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -189,7 +222,7 @@
 
 .profile-info {
     margin-left: 10px;
-    color: #007BFF;
+    color: black;
     display: flex;
     flex-direction: column;
 }
@@ -227,6 +260,13 @@
 .treatment-title {
     font-size: 1.2em;
     font-weight: bold;
-    color: #007BFF;
+    color: red;
     margin-left: 20px;
 }
+
+.section-title{
+    background-color: #f1f5f9;
+}
+
+
+

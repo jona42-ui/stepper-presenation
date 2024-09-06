@@ -90,11 +90,11 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 <div className="profile-notification-container">
 
                     <div className="notification">
-                        <FaBell size={24} color="#007BFF" />
+                        <FaBell size={40} color="#007BFF" />
                     </div>
                     {/* Profile section */}
                     <div className="profile">
-                        <FaUserCircle size={24} color="#007BFF" />
+                        <FaUserCircle size={40} color="#007BFF" />
                         <div className="profile-info">
                             <span className="profile-title">Consenting Doctor</span>
                             <span className="profile-name">Barbra Ndagire B</span>
