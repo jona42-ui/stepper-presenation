@@ -19,8 +19,9 @@ const Presentation = () => {
             
             {/* Main content area displaying the stepper for the selected treatment */}
             <div className="content">
-                <Stepper steps={treatmentsData[selectedTreatment]} />
-            </div>
+    <Stepper steps={treatmentsData[selectedTreatment]} selectedTreatment={selectedTreatment} />
+</div>
+
         </div>
     );
 };

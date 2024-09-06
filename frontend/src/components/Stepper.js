@@ -1,20 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import './Stepper.css'; 
+import { FaBell, FaUserCircle } from 'react-icons/fa'; // Import bell and profile icons
+import './Stepper.css';
 import { TiTick } from 'react-icons/ti';
 
 const fetchTTS = async (text) => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/tts`, { text });
         return `${process.env.REACT_APP_API_URL}${response.data.audioUrl}`;
-        
     } catch (error) {
         console.error("Error fetching TTS audio:", error);
         return null;
     }
 };
 
-const Stepper = ({ steps }) => {
+const Stepper = ({ steps, selectedTreatment }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [currentSection, setCurrentSection] = useState(0);
     const [audioUrls, setAudioUrls] = useState([]);
@@ -23,22 +23,19 @@ const Stepper = ({ steps }) => {
     const audioRef = useRef(null);
 
     useEffect(() => {
-        // Load audio URLs for the current step's sections
         const loadAudioUrls = async () => {
             if (steps[currentStep]?.sections) {
                 const urls = await Promise.all(
                     steps[currentStep].sections.map(section => fetchTTS(section.audioText))
                 );
                 setAudioUrls(urls);
-                setCurrentSection(0); // Reset section to the first one
+                setCurrentSection(0);
             }
         };
-
         loadAudioUrls();
     }, [steps, currentStep]);
 
     useEffect(() => {
-        // Play audio for the current section
         if (isPlaying && audioUrls[currentSection]) {
             if (audioRef.current) {
                 audioRef.current.src = audioUrls[currentSection];
@@ -46,61 +43,6 @@ const Stepper = ({ steps }) => {
             }
         }
     }, [isPlaying, currentSection, audioUrls]);
-
-    const findNextStepIndex = (direction) => {
-        const currentTitle = steps[currentStep]?.title;
-        let newIndex = currentStep;
-
-        while (true) {
-            if (direction === 'next') {
-                newIndex = (newIndex + 1) % steps.length;
-            } else if (direction === 'previous') {
-                newIndex = (newIndex - 1 + steps.length) % steps.length;
-            }
-
-            if (steps[newIndex]?.title !== currentTitle) {
-                return newIndex;
-            }
-
-            // Break the loop if we've cycled through all steps with the same title
-            if (newIndex === currentStep) {
-                break;
-            }
-        }
-
-        return currentStep;
-    };
-
-    const handleNext = () => {
-        if (currentSection < steps[currentStep].sections.length - 1) {
-            // Move to the next section within the current step
-            setCurrentSection(currentSection + 1);
-        } else {
-            // Check if there are more steps available
-            const nextStep = findNextStepIndex('next');
-            
-            if (nextStep === currentStep) {
-                // If nextStep is the same as currentStep, it means there are no more steps to move to
-                console.log("You are already at the last step.");
-                return; // Prevent moving further
-            }
-            
-            // Move to the next step and reset section index
-            setCurrentStep(nextStep);
-            setCurrentSection(0);
-        }
-    };
-
-    const handlePrevious = () => {
-        if (currentSection > 0) {
-            setCurrentSection(currentSection - 1);
-        } else {
-            // Move to the previous step and reset section index
-            const prevStep = findNextStepIndex('previous');
-            setCurrentStep(prevStep);
-            setCurrentSection(0);
-        }
-    };
 
     const handleStart = () => {
         if (videoRef.current) {
@@ -119,11 +61,9 @@ const Stepper = ({ steps }) => {
     useEffect(() => {
         const handleAudioEnd = () => {
             if (currentSection < audioUrls.length - 1) {
-                setCurrentSection(currentSection + 1); // Move to the next section
+                setCurrentSection(currentSection + 1);
             } else {
-                // All sections of the current step are done
-                handleNext(); // Proceed to the next step
-                setIsPlaying(false); 
+                setIsPlaying(false);
             }
         };
 
@@ -138,19 +78,39 @@ const Stepper = ({ steps }) => {
         };
     }, [currentSection, audioUrls.length]);
 
-    const handleStepClick = (index) => {
-        setCurrentStep(index);
-        setCurrentSection(0);
-    };
-
     return (
         <div className="stepper-container">
+            <div className="top-bar">
+                {/* Treatment title on the left */}
+                <div className="treatment-title">
+                    <span>{selectedTreatment}</span>
+                </div>
+
+                {/* Profile and notification on the right */}
+                <div className="profile-notification-container">
+
+                    <div className="notification">
+                        <FaBell size={24} color="#007BFF" />
+                    </div>
+                    {/* Profile section */}
+                    <div className="profile">
+                        <FaUserCircle size={24} color="#007BFF" />
+                        <div className="profile-info">
+                            <span className="profile-title">Consenting Doctor</span>
+                            <span className="profile-name">Barbra Ndagire B</span>
+                        </div>
+                    </div>
+
+                    {/* Notification icon */}
+
+                </div>
+            </div>
+
             <div className="progress-bar">
                 {steps.map((step, index) => (
                     <div
                         key={index}
                         className={`step-item ${currentStep === index ? "active" : ""} ${index < currentStep ? "complete" : ""}`}
-                        onClick={() => handleStepClick(index)}
                     >
                         <div className="step">
                             {index < currentStep ? <TiTick size={24} /> : index + 1}
@@ -159,27 +119,31 @@ const Stepper = ({ steps }) => {
                     </div>
                 ))}
             </div>
-            <div className="stepper-content">
-                <div className="stepper-text">
-                    <h1>{steps[currentStep]?.sections[currentSection]?.section}</h1>
-                    <p>{steps[currentStep]?.sections[currentSection]?.content}</p>
-                    <div className="section-progress">
-                        {`${currentSection + 1} / ${steps[currentStep]?.sections.length}`}
-                    </div>
-                </div>
-                <div className="stepper-video">
-                    <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
-                    {audioUrls.length > 0 && <audio ref={audioRef} />}
-                </div>
-            </div>
+
             <div className="controls">
-                <button onClick={handlePrevious}>Previous</button>
                 {isPlaying ? (
                     <button onClick={handlePause}>Pause</button>
                 ) : (
                     <button onClick={handleStart}>Start</button>
                 )}
-                <button onClick={handleNext}>Next</button>
+            </div>
+
+            <div className='card'>
+                <div className='section-title'>
+                    <h1 className='section-title'>{steps[currentStep]?.sections[currentSection]?.section}</h1>
+                </div>
+                <div className="stepper-content">
+                    <div className="stepper-text">
+                        <p>{steps[currentStep]?.sections[currentSection]?.content}</p>
+                    </div>
+                    <div className="stepper-video">
+                        <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
+                        {audioUrls.length > 0 && <audio ref={audioRef} />}
+                    </div>
+                </div>
+                <div className="section-progress">
+                    {`${currentSection + 1} of ${steps[currentStep]?.sections.length}`}
+                </div>
             </div>
         </div>
     );

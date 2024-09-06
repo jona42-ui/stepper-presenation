@@ -1,12 +1,15 @@
+/* Sidebar */
 .sidebar {
     width: 150px;
-    background-color: #f4f4f4;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 15px; /* Reduce padding to save space */
     border-right: 1px solid #ddd;
     height: 100vh; /* Full height */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto; /* Allow scrolling within sidebar if needed */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
 }
 
+/* Ensure content inside sidebar doesn’t overflow */
 .sidebar h2 {
     margin-top: 0;
 }
@@ -19,12 +22,12 @@
 
 .sidebar ul li {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 15px; /* Space between treatments */
-    padding: 10px; /* Padding around each item */
+    margin-bottom: 10px; /* Reduced margin for less spacing */
+    padding: 8px; /* Adjusted padding for consistency */
 }
 
 .sidebar ul li:hover {
@@ -32,9 +35,9 @@
 }
 
 .icon {
-    margin-bottom: 8px; /* Space between icon and text */
+    margin-bottom: 8px;
 }
 
 .text {
-    font-size: 14px; 
+    font-size: 14px;
 }
