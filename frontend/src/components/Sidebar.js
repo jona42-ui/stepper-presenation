@@ -18,7 +18,6 @@ const icons = {
 const Sidebar = ({ treatments, onSelect }) => {
     return (
         <div className="sidebar">
-            <h2>Select Treatment</h2>
             <ul>
                 {treatments.map((treatment) => (
                     <li key={treatment} onClick={() => onSelect(treatment)} className="sidebar-item">

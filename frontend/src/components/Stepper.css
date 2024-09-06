@@ -26,7 +26,7 @@
     border-radius: 20px;
     background-color: #ffffff;
     padding: 0; /* Remove padding inside the card */
-    margin: 0; /* Remove margin around the card */
+    margin-bottom: 20px; /* Remove margin around the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
     height: calc(100vh - 60px); /* Adjust to avoid vertical scrolling */
     overflow-y: auto; /* Allow scrolling inside the card if content overflows */
@@ -124,7 +124,7 @@
 }
 
 .section-progress {
-    margin: 0;
+    margin: 0px;
     padding: 10px 20px;
     font-size: 1.2em;
     color: #333;
