@@ -30,6 +30,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
     const videoRef = useRef(null);
     const audioRef = useRef(null);
 
+    // Load audio URLs for the current step's sections
     useEffect(() => {
         const loadAudioUrls = async () => {
             if (steps[currentStep]?.sections) {
@@ -43,6 +44,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
         loadAudioUrls();
     }, [steps, currentStep]);
 
+    // Handle audio playback
     useEffect(() => {
         if (isPlaying && audioUrls[currentSection]) {
             if (audioRef.current) {
@@ -51,7 +53,8 @@ const Stepper = ({ steps, selectedTreatment }) => {
             }
         }
     }, [isPlaying, currentSection, audioUrls]);
-    
+
+    // Handle start button
     const handleStart = () => {
         if (videoRef.current) {
             videoRef.current.play();
@@ -59,6 +62,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
         setIsPlaying(true);
     };
 
+    // Handle pause button
     const handlePause = () => {
         if (videoRef.current) {
             videoRef.current.pause();
@@ -66,36 +70,34 @@ const Stepper = ({ steps, selectedTreatment }) => {
         setIsPlaying(false);
     };
 
+    // Handle end of audio playback
     useEffect(() => {
         const handleAudioEnd = () => {
             if (audioRef.current) {
-                // Move to the next audio URL within the current section
                 const nextAudioIndex = audioUrls[currentSection].indexOf(audioRef.current.src) + 1;
                 
                 if (nextAudioIndex < audioUrls[currentSection].length) {
-                    // Play the next URL in the current section
                     audioRef.current.src = audioUrls[currentSection][nextAudioIndex];
                     audioRef.current.play();
                 } else if (currentSection < steps[currentStep].sections.length - 1) {
-                    // Move to the next section if all audio in the current section is played
                     setCurrentSection(currentSection + 1);
                 } else if (currentStep < steps.length - 1) {
-                    // Move to the next step if all sections in the current step are played
                     setCurrentStep(currentStep + 1);
                     setCurrentSection(0); // Start the new step from the first section
                 } else {
-                    // Reset to the first step and section if all steps are played
                     setCurrentStep(0);
                     setCurrentSection(0);
                     setIsPlaying(false); // Stop playing
+                    // Optionally reset audio URL array to clear previous URLs
+                    setAudioUrls([]);
                 }
             }
         };
-    
+
         if (audioRef.current) {
             audioRef.current.addEventListener('ended', handleAudioEnd);
         }
-    
+
         return () => {
             if (audioRef.current) {
                 audioRef.current.removeEventListener('ended', handleAudioEnd);
@@ -103,16 +105,18 @@ const Stepper = ({ steps, selectedTreatment }) => {
         };
     }, [currentStep, currentSection, steps, audioUrls]);
 
+    // Load video URL for the current section
     useEffect(() => {
         if (videoRef.current && steps[currentStep]?.sections[currentSection]?.videoUrl) {
             videoRef.current.src = steps[currentStep].sections[currentSection].videoUrl;
             videoRef.current.load();
         }
     }, [currentStep, currentSection, steps]);
-    
+
+    // Set audio source and play
     useEffect(() => {
         if (audioRef.current && audioUrls[currentSection]) {
-            audioRef.current.src = audioUrls[currentSection];
+            audioRef.current.src = audioUrls[currentSection][0];
             audioRef.current.load();
             audioRef.current.play().catch(error => {
                 console.error("Error playing audio:", error);
@@ -120,16 +124,16 @@ const Stepper = ({ steps, selectedTreatment }) => {
         }
     }, [audioUrls, currentSection]);
 
+    // Start playing audio for the current section
     const handlePlayAudio = () => {
         if (audioRef.current && audioUrls[currentSection]) {
-            audioRef.current.src = audioUrls[currentSection][0]; // Load the first URL
+            audioRef.current.src = audioUrls[currentSection][0];
             audioRef.current.play()
                 .then(() => {
                     console.log("Audio is playing.");
                 })
                 .catch(error => {
                     console.error("Error playing audio:", error);
-                    // Retry mechanism
                     setTimeout(() => {
                         audioRef.current.play().catch(err => {
                             console.error("Retry failed:", err);
@@ -137,8 +141,16 @@ const Stepper = ({ steps, selectedTreatment }) => {
                     }, 1000);
                 });
         }
+        setIsPlaying(false);
+
     };
-    
+
+    // Handle step click
+    const handleStepClick = (index) => {
+        setCurrentStep(index);
+        setCurrentSection(0); // Reset to the first section
+        setIsPlaying(false); // Stop any ongoing audio when switching steps
+    };
 
     return (
         <div className="stepper-container">
@@ -164,10 +176,11 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 {steps.map((step, index) => (
                     <div
                         key={index}
-                        className={`step-item ${currentStep === index ? "active" : ""} ${index < currentStep ? "complete" : ""}`}
+                        className={`step-item ${currentStep === index ? "active" : ""}`}
+                        onClick={() => handleStepClick(index)}
                     >
                         <div className="step">
-                            {index < currentStep ? <TiTick size={24} /> : index + 1}
+                            {index === currentStep ? index + 1 : (index < currentStep ? <TiTick size={24} /> : index + 1)}
                         </div>
                         <span className="step-title">{step.title}</span>
                     </div>
