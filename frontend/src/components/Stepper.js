@@ -1,16 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { FaBell, FaUserCircle } from 'react-icons/fa'; // Import bell and profile icons
+import { FaBell, FaUserCircle } from 'react-icons/fa'; 
 import './Stepper.css';
 import { TiTick } from 'react-icons/ti';
 
 const fetchTTS = async (text) => {
     try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/tts`, { text });
-        return `${process.env.REACT_APP_API_URL}${response.data.audioUrl}`;
+        console.log('API Response:', response.data);
+
+        const audioUrls = response.data.audioUrls;
+        if (!audioUrls || audioUrls.length === 0) {
+            throw new Error("audioUrls is undefined or empty");
+        }
+
+        // Return the complete URLs, ensuring they are separate
+        return audioUrls.map(url => `${process.env.REACT_APP_API_URL}${url}`);
     } catch (error) {
         console.error("Error fetching TTS audio:", error);
-        return null;
+        return [];
     }
 };
 
@@ -29,7 +37,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
                     steps[currentStep].sections.map(section => fetchTTS(section.audioText))
                 );
                 setAudioUrls(urls);
-                setCurrentSection(0);
+                setCurrentSection(0); // Start from the first section
             }
         };
         loadAudioUrls();
@@ -38,12 +46,12 @@ const Stepper = ({ steps, selectedTreatment }) => {
     useEffect(() => {
         if (isPlaying && audioUrls[currentSection]) {
             if (audioRef.current) {
-                audioRef.current.src = audioUrls[currentSection];
+                audioRef.current.src = audioUrls[currentSection][0]; // Start with the first URL
                 audioRef.current.play();
             }
         }
     }, [isPlaying, currentSection, audioUrls]);
-
+    
     const handleStart = () => {
         if (videoRef.current) {
             videoRef.current.play();
@@ -60,39 +68,88 @@ const Stepper = ({ steps, selectedTreatment }) => {
 
     useEffect(() => {
         const handleAudioEnd = () => {
-            if (currentSection < audioUrls.length - 1) {
-                setCurrentSection(currentSection + 1);
-            } else {
-                setIsPlaying(false);
+            if (audioRef.current) {
+                // Move to the next audio URL within the current section
+                const nextAudioIndex = audioUrls[currentSection].indexOf(audioRef.current.src) + 1;
+                
+                if (nextAudioIndex < audioUrls[currentSection].length) {
+                    // Play the next URL in the current section
+                    audioRef.current.src = audioUrls[currentSection][nextAudioIndex];
+                    audioRef.current.play();
+                } else if (currentSection < steps[currentStep].sections.length - 1) {
+                    // Move to the next section if all audio in the current section is played
+                    setCurrentSection(currentSection + 1);
+                } else if (currentStep < steps.length - 1) {
+                    // Move to the next step if all sections in the current step are played
+                    setCurrentStep(currentStep + 1);
+                    setCurrentSection(0); // Start the new step from the first section
+                } else {
+                    // Reset to the first step and section if all steps are played
+                    setCurrentStep(0);
+                    setCurrentSection(0);
+                    setIsPlaying(false); // Stop playing
+                }
             }
         };
-
+    
         if (audioRef.current) {
             audioRef.current.addEventListener('ended', handleAudioEnd);
         }
-
+    
         return () => {
             if (audioRef.current) {
                 audioRef.current.removeEventListener('ended', handleAudioEnd);
             }
         };
-    }, [currentSection, audioUrls.length]);
+    }, [currentStep, currentSection, steps, audioUrls]);
+
+    useEffect(() => {
+        if (videoRef.current && steps[currentStep]?.sections[currentSection]?.videoUrl) {
+            videoRef.current.src = steps[currentStep].sections[currentSection].videoUrl;
+            videoRef.current.load();
+        }
+    }, [currentStep, currentSection, steps]);
+    
+    useEffect(() => {
+        if (audioRef.current && audioUrls[currentSection]) {
+            audioRef.current.src = audioUrls[currentSection];
+            audioRef.current.load();
+            audioRef.current.play().catch(error => {
+                console.error("Error playing audio:", error);
+            });
+        }
+    }, [audioUrls, currentSection]);
+
+    const handlePlayAudio = () => {
+        if (audioRef.current && audioUrls[currentSection]) {
+            audioRef.current.src = audioUrls[currentSection][0]; // Load the first URL
+            audioRef.current.play()
+                .then(() => {
+                    console.log("Audio is playing.");
+                })
+                .catch(error => {
+                    console.error("Error playing audio:", error);
+                    // Retry mechanism
+                    setTimeout(() => {
+                        audioRef.current.play().catch(err => {
+                            console.error("Retry failed:", err);
+                        });
+                    }, 1000);
+                });
+        }
+    };
+    
 
     return (
         <div className="stepper-container">
             <div className="top-bar">
-                {/* Treatment title on the left */}
                 <div className="treatment-title">
                     <span>{selectedTreatment}</span>
                 </div>
-
-                {/* Profile and notification on the right */}
                 <div className="profile-notification-container">
-
                     <div className="notification">
                         <FaBell size={40} color="#007BFF" />
                     </div>
-                    {/* Profile section */}
                     <div className="profile">
                         <FaUserCircle size={40} color="#007BFF" />
                         <div className="profile-info">
@@ -100,9 +157,6 @@ const Stepper = ({ steps, selectedTreatment }) => {
                             <span className="profile-name">Barbra Ndagire B</span>
                         </div>
                     </div>
-
-                    {/* Notification icon */}
-
                 </div>
             </div>
 
@@ -124,7 +178,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 {isPlaying ? (
                     <button onClick={handlePause}>Pause</button>
                 ) : (
-                    <button onClick={handleStart}>Start</button>
+                    <button onClick={handlePlayAudio}>Start</button>
                 )}
             </div>
 
@@ -138,7 +192,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
                     </div>
                     <div className="stepper-video">
                         <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
-                        {audioUrls.length > 0 && <audio ref={audioRef} />}
+                        {audioUrls.length > 0 && <audio ref={audioRef} preload="auto"/>}
                     </div>
                 </div>
                 <div className="section-progress">

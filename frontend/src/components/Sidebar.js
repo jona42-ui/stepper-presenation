@@ -3,8 +3,8 @@ import './Sidebar.css';
 import { FaTooth, FaStethoscope, FaSyringe, FaPills, FaBandAid, FaHeartbeat, FaXRay, FaSmile, FaAllergies} from 'react-icons/fa'; 
 
 const icons = {
-    "Tooth Extraction": <FaTooth size={24} />,
-    "Root Canal": <FaTooth size={24} />, 
+    "Fixed Prosthodontic": <FaTooth size={24} />,
+    "crown or bridge": <FaTooth size={24} />, 
     "Teeth Whitening": <FaSmile size={24} />, 
     "Dental Implants": <FaAllergies size={24} />, 
     "General Checkup": <FaStethoscope size={24} />,
