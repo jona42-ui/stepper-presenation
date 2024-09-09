@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 const router = express.Router();
-const AUDIO_DIR = path.join(path.dirname(new URL(import.meta.url).pathname), 'temp_audio');
+const AUDIO_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname).substring(1), 'temp_audio');
 
 // Ensure AUDIO_DIR exists
 if (!fs.existsSync(AUDIO_DIR)) {
@@ -15,7 +15,6 @@ if (!fs.existsSync(AUDIO_DIR)) {
 const saveAudioFile = async (url, fileName) => {
     try {
         const response = await fetch(url);
-
         if (!response.ok) {
             throw new Error(`Failed to fetch audio from URL: ${url}. Status: ${response.status}`);
         }
@@ -33,30 +32,28 @@ const saveAudioFile = async (url, fileName) => {
     }
 };
 
-
 router.post('/', async (req, res) => {
     const { text } = req.body;
-
-    if (text.length > 200) {
-        return res.status(400).send('Text length exceeds the limit of 200 characters.');
-        
+    if (!text) {
+        return res.status(400).send('No text provided.');
     }
 
-    console.log(res);
-
     try {
-        const url = googleTTS.getAudioUrl(text, {
+        const audioUrls = googleTTS.getAllAudioUrls(text, {
             lang: 'en',
             slow: false,
             host: 'https://translate.google.com',
+            splitPunct: ',.?!' 
         });
 
-        console.log('Generated Audio URL:', url);
+        const audioFiles = [];
+        for (const [index, audioUrl] of audioUrls.entries()) {
+            const fileName = `audio_chunk_${Date.now()}_${index}.mp3`;
+            const filePath = await saveAudioFile(audioUrl.url, fileName);
+            audioFiles.push(`/api/tts/audio/${fileName}`);
+        }
 
-        const fileName = `audio_${Date.now()}.mp3`;
-        const filePath = await saveAudioFile(url, fileName);
-
-        res.json({ audioUrl: `/api/tts/audio/${fileName}` });
+        res.json({ audioUrls: audioFiles });
     } catch (error) {
         console.error('Error generating audio:', error);
         res.status(500).send('Error generating audio');
@@ -65,10 +62,9 @@ router.post('/', async (req, res) => {
 
 // Serve static audio files
 router.use('/audio', express.static(AUDIO_DIR, {
-    setHeaders: (res, path) => {
+    setHeaders: (res) => {
         res.setHeader('Content-Type', 'audio/mpeg');
     }
 }));
-
 
 export default router;
