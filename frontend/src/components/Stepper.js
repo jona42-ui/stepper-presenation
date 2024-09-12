@@ -30,6 +30,15 @@ const Stepper = ({ steps, selectedTreatment }) => {
     const videoRef = useRef(null);
     const audioRef = useRef(null);
 
+    // Function to stop audio
+    const stopAudio = () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+            audioRef.current.src = ""; // Clear audio source to avoid overlap
+        }
+    };
+
     // Load audio URLs for the current step's sections
     useEffect(() => {
         const loadAudioUrls = async () => {
@@ -41,55 +50,41 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 setCurrentSection(0); // Start from the first section
             }
         };
+        stopAudio(); // Stop previous step's audio before loading new audio
         loadAudioUrls();
     }, [steps, currentStep]);
 
-    // Handle audio playback
+    // Play audio sequentially for each section
     useEffect(() => {
         if (isPlaying && audioUrls[currentSection]) {
             if (audioRef.current) {
-                audioRef.current.src = audioUrls[currentSection][0]; // Start with the first URL
-                audioRef.current.play();
+                audioRef.current.src = audioUrls[currentSection][0]; // Play first URL of the current section
+                audioRef.current.play().catch(err => console.error("Audio playback failed", err));
             }
         }
     }, [isPlaying, currentSection, audioUrls]);
 
-    // Handle start button
-    const handleStart = () => {
-        if (videoRef.current) {
-            videoRef.current.play();
-        }
-        setIsPlaying(true);
-    };
-
-    // Handle pause button
-    const handlePause = () => {
-        if (videoRef.current) {
-            videoRef.current.pause();
-        }
-        setIsPlaying(false);
-    };
-
-    // Handle end of audio playback
+    // Handle audio end event to move to the next section or step
     useEffect(() => {
-        const handleAudioEnd = () => {
+        const handleAudioEnd = async () => {
             if (audioRef.current) {
                 const nextAudioIndex = audioUrls[currentSection].indexOf(audioRef.current.src) + 1;
-                
+
                 if (nextAudioIndex < audioUrls[currentSection].length) {
+                    // Play the next audio URL in the current section
                     audioRef.current.src = audioUrls[currentSection][nextAudioIndex];
                     audioRef.current.play();
                 } else if (currentSection < steps[currentStep].sections.length - 1) {
+                    // Move to the next section
                     setCurrentSection(currentSection + 1);
                 } else if (currentStep < steps.length - 1) {
+                    // Move to the next step
                     setCurrentStep(currentStep + 1);
-                    setCurrentSection(0); // Start the new step from the first section
-                } else {
-                    setCurrentStep(0);
                     setCurrentSection(0);
-                    setIsPlaying(false); // Stop playing
-                    // Optionally reset audio URL array to clear previous URLs
-                    setAudioUrls([]);
+                } else {
+                    // End of steps, stop playback
+                    setCurrentStep(0);
+                    setIsPlaying(false);
                 }
             }
         };
@@ -103,7 +98,46 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 audioRef.current.removeEventListener('ended', handleAudioEnd);
             }
         };
-    }, [currentStep, currentSection, steps, audioUrls]);
+    }, [audioUrls, currentSection, steps, currentStep]);
+
+    // Handle the start of the process
+    const handleStart = () => {
+        setIsPlaying(true);
+    };
+
+    // Handle pause
+    const handlePause = () => {
+        stopAudio();
+        setIsPlaying(false);
+    };
+
+    // Handle step click to manually change step
+const handleStepClick = (index) => {
+    stopAudio(); // Stop current audio before changing step
+
+    if (steps[index] && steps[index].sections.length > 0) {
+        // If the step has sections, reset the step and start playback
+        setCurrentStep(index);
+        setCurrentSection(0);
+        setIsPlaying(true);
+    } else {
+        // Check if there are more sections in the current step
+        if (currentSection < steps[currentStep].sections.length - 1) {
+            setCurrentSection(currentSection + 1); // Move to next section
+        } else if (currentStep < steps.length - 1) {
+            // If all sections are done, move to the next step
+            setCurrentStep(currentStep + 1);
+            setCurrentSection(0);
+        } else {
+            // If it's the last step, reset to the first step and stop playback
+            setCurrentStep(0);
+            setCurrentSection(0);
+            setIsPlaying(false);
+        }
+    }
+};
+
+
 
     // Load video URL for the current section
     useEffect(() => {
@@ -112,45 +146,6 @@ const Stepper = ({ steps, selectedTreatment }) => {
             videoRef.current.load();
         }
     }, [currentStep, currentSection, steps]);
-
-    // Set audio source and play
-    useEffect(() => {
-        if (audioRef.current && audioUrls[currentSection]) {
-            audioRef.current.src = audioUrls[currentSection][0];
-            audioRef.current.load();
-            audioRef.current.play().catch(error => {
-                console.error("Error playing audio:", error);
-            });
-        }
-    }, [audioUrls, currentSection]);
-
-    // Start playing audio for the current section
-    const handlePlayAudio = () => {
-        if (audioRef.current && audioUrls[currentSection]) {
-            audioRef.current.src = audioUrls[currentSection][0];
-            audioRef.current.play()
-                .then(() => {
-                    console.log("Audio is playing.");
-                })
-                .catch(error => {
-                    console.error("Error playing audio:", error);
-                    setTimeout(() => {
-                        audioRef.current.play().catch(err => {
-                            console.error("Retry failed:", err);
-                        });
-                    }, 1000);
-                });
-        }
-        setIsPlaying(false);
-
-    };
-
-    // Handle step click
-    const handleStepClick = (index) => {
-        setCurrentStep(index);
-        setCurrentSection(0); // Reset to the first section
-        setIsPlaying(false); // Stop any ongoing audio when switching steps
-    };
 
     return (
         <div className="stepper-container">
@@ -191,7 +186,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
                 {isPlaying ? (
                     <button onClick={handlePause}>Pause</button>
                 ) : (
-                    <button onClick={handlePlayAudio}>Start</button>
+                    <button onClick={handleStart}>Start</button>
                 )}
             </div>
 
