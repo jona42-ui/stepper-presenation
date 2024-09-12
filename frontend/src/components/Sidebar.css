@@ -60,3 +60,47 @@
 .sidebar ul li:hover .text {
     color: #007bff; /* Change text color on hover */
 }
+
+/* Responsive styles */
+@media (max-width: 1024px) { /* For tablets */
+    .sidebar {
+        width: 100%; /* Full width for tablets */
+        max-width: 250px; /* Reduced max-width for tablets */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .sidebar ul li {
+        margin-bottom: 8px; /* Less margin for tablets */
+        padding: 8px; /* Adjust padding for tablets */
+    }
+
+    .text {
+        font-size: 13px; /* Slightly smaller font size for tablets */
+    }
+}
+
+@media (max-width: 768px) { /* For small screens and mobile */
+    .sidebar {
+        width: 100%; /* Full width for small screens */
+        max-width: none; /* Remove max-width on small screens */
+        height: auto; /* Allow height to adjust based on content */
+        position: relative; /* Position relative on small screens */
+        top: auto;
+        left: auto;
+    }
+}
+
+@media (max-width: 576px) { /* For very small screens */
+    .sidebar {
+        padding: 10px; /* Adjust padding for very small screens */
+    }
+
+    .sidebar ul li {
+        margin-bottom: 8px; /* Less margin for very small screens */
+        padding: 6px; /* Adjust padding for very small screens */
+    }
+
+    .text {
+        font-size: 12px; /* Smaller font size for very small screens */
+    }
+}
