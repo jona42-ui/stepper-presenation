@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { FaBell, FaUserCircle } from 'react-icons/fa'; 
+import { FaBell, FaUserCircle } from 'react-icons/fa';
 import './Stepper.css';
 import { TiTick } from 'react-icons/ti';
 
@@ -14,7 +14,6 @@ const fetchTTS = async (text) => {
             throw new Error("audioUrls is undefined or empty");
         }
 
-        // Return the complete URLs, ensuring they are separate
         return audioUrls.map(url => `${process.env.REACT_APP_API_URL}${url}`);
     } catch (error) {
         console.error("Error fetching TTS audio:", error);
@@ -27,19 +26,26 @@ const Stepper = ({ steps, selectedTreatment }) => {
     const [currentSection, setCurrentSection] = useState(0);
     const [audioUrls, setAudioUrls] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
-    const videoRef = useRef(null);
     const audioRef = useRef(null);
+    const videoRef = useRef(null);
 
-    // Function to stop audio
     const stopAudio = () => {
         if (audioRef.current) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
-            audioRef.current.src = ""; // Clear audio source to avoid overlap
+            audioRef.current.src = "";
         }
     };
 
-    // Load audio URLs for the current step's sections
+    const resetAudioAndVideo = () => {
+        stopAudio();
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+            videoRef.current.src = "";
+        }
+    };
+
     useEffect(() => {
         const loadAudioUrls = async () => {
             if (steps[currentStep]?.sections) {
@@ -47,99 +53,73 @@ const Stepper = ({ steps, selectedTreatment }) => {
                     steps[currentStep].sections.map(section => fetchTTS(section.audioText))
                 );
                 setAudioUrls(urls);
-                setCurrentSection(0); // Start from the first section
+                setCurrentSection(0);
             }
         };
-        stopAudio(); // Stop previous step's audio before loading new audio
+
+        resetAudioAndVideo(); // Stop previous audio and reset video before loading new audio
         loadAudioUrls();
     }, [steps, currentStep]);
 
-    // Play audio sequentially for each section
     useEffect(() => {
-        if (isPlaying && audioUrls[currentSection]) {
+        if (isPlaying && audioUrls[currentSection]?.length) {
             if (audioRef.current) {
-                audioRef.current.src = audioUrls[currentSection][0]; // Play first URL of the current section
+                audioRef.current.src = audioUrls[currentSection][0];
                 audioRef.current.play().catch(err => console.error("Audio playback failed", err));
             }
         }
     }, [isPlaying, currentSection, audioUrls]);
 
-    // Handle audio end event to move to the next section or step
     useEffect(() => {
-        const handleAudioEnd = async () => {
+        const handleAudioEnd = () => {
             if (audioRef.current) {
                 const nextAudioIndex = audioUrls[currentSection].indexOf(audioRef.current.src) + 1;
 
                 if (nextAudioIndex < audioUrls[currentSection].length) {
-                    // Play the next audio URL in the current section
                     audioRef.current.src = audioUrls[currentSection][nextAudioIndex];
                     audioRef.current.play();
                 } else if (currentSection < steps[currentStep].sections.length - 1) {
-                    // Move to the next section
                     setCurrentSection(currentSection + 1);
                 } else if (currentStep < steps.length - 1) {
-                    // Move to the next step
                     setCurrentStep(currentStep + 1);
                     setCurrentSection(0);
+                    setAudioUrls([]); // Clear previous audio URLs
                 } else {
-                    // End of steps, stop playback
                     setCurrentStep(0);
                     setIsPlaying(false);
                 }
             }
         };
 
-        if (audioRef.current) {
-            audioRef.current.addEventListener('ended', handleAudioEnd);
+        const currentAudioRef = audioRef.current;
+        if (currentAudioRef) {
+            currentAudioRef.addEventListener('ended', handleAudioEnd);
         }
 
         return () => {
-            if (audioRef.current) {
-                audioRef.current.removeEventListener('ended', handleAudioEnd);
+            if (currentAudioRef) {
+                currentAudioRef.removeEventListener('ended', handleAudioEnd);
             }
         };
     }, [audioUrls, currentSection, steps, currentStep]);
 
-    // Handle the start of the process
     const handleStart = () => {
         setIsPlaying(true);
     };
 
-    // Handle pause
     const handlePause = () => {
         stopAudio();
         setIsPlaying(false);
     };
 
-    // Handle step click to manually change step
-const handleStepClick = (index) => {
-    stopAudio(); // Stop current audio before changing step
-
-    if (steps[index] && steps[index].sections.length > 0) {
-        // If the step has sections, reset the step and start playback
+    const handleStepClick = (index) => {
+        resetAudioAndVideo();
         setCurrentStep(index);
         setCurrentSection(0);
         setIsPlaying(true);
-    } else {
-        // Check if there are more sections in the current step
-        if (currentSection < steps[currentStep].sections.length - 1) {
-            setCurrentSection(currentSection + 1); // Move to next section
-        } else if (currentStep < steps.length - 1) {
-            // If all sections are done, move to the next step
-            setCurrentStep(currentStep + 1);
-            setCurrentSection(0);
-        } else {
-            // If it's the last step, reset to the first step and stop playback
-            setCurrentStep(0);
-            setCurrentSection(0);
-            setIsPlaying(false);
-        }
-    }
-};
+        setAudioUrls([]); // Clear previous audio URLs
+    };
 
-
-
-    // Load video URL for the current section
     useEffect(() => {
         if (videoRef.current && steps[currentStep]?.sections[currentSection]?.videoUrl) {
             videoRef.current.src = steps[currentStep].sections[currentSection].videoUrl;
@@ -192,15 +172,21 @@ const handleStepClick = (index) => {
 
             <div className='card'>
                 <div className='section-title'>
-                    <h1 className='section-title'>{steps[currentStep]?.sections[currentSection]?.section}</h1>
+                    <h1 className='section-title'>
+                        {steps[currentStep]?.sections[currentSection]?.section || "No Section Title"}
+                    </h1>
                 </div>
                 <div className="stepper-content">
                     <div className="stepper-text">
-                        <p>{steps[currentStep]?.sections[currentSection]?.content}</p>
+                        <p>{steps[currentStep]?.sections[currentSection]?.content || "Content not available for this section."}</p>
                     </div>
                     <div className="stepper-video">
-                        <video ref={videoRef} src={steps[currentStep]?.sections[currentSection]?.videoUrl} />
-                        {audioUrls.length > 0 && <audio ref={audioRef} preload="auto"/>}
+                        {steps[currentStep]?.sections[currentSection]?.videoUrl ? (
+                            <video ref={videoRef} controls />
+                        ) : (
+                            <p>No video available for this section.</p>
+                        )}
+                        {audioUrls.length > 0 && <audio ref={audioRef} preload="auto" />}
                     </div>
                 </div>
                 <div className="section-progress">
