@@ -66,9 +66,15 @@ const Stepper = ({ steps, selectedTreatment }) => {
             if (audioRef.current) {
                 audioRef.current.src = audioUrls[currentSection][0];
                 audioRef.current.play().catch(err => console.error("Audio playback failed", err));
+                
+                // Play video automatically when audio starts
+                if (videoRef.current) {
+                    videoRef.current.src = steps[currentStep]?.sections[currentSection]?.videoUrl || "";
+                    videoRef.current.play().catch(err => console.error("Video playback failed", err));
+                }
             }
         }
-    }, [isPlaying, currentSection, audioUrls]);
+    }, [isPlaying, currentSection, audioUrls, steps, currentStep]);
 
     useEffect(() => {
         const handleAudioEnd = () => {
@@ -119,13 +125,6 @@ const Stepper = ({ steps, selectedTreatment }) => {
         setIsPlaying(true);
         setAudioUrls([]); // Clear previous audio URLs
     };
-
-    useEffect(() => {
-        if (videoRef.current && steps[currentStep]?.sections[currentSection]?.videoUrl) {
-            videoRef.current.src = steps[currentStep].sections[currentSection].videoUrl;
-            videoRef.current.load();
-        }
-    }, [currentStep, currentSection, steps]);
 
     return (
         <div className="stepper-container">
@@ -182,7 +181,7 @@ const Stepper = ({ steps, selectedTreatment }) => {
                     </div>
                     <div className="stepper-video">
                         {steps[currentStep]?.sections[currentSection]?.videoUrl ? (
-                            <video ref={videoRef} controls />
+                            <video ref={videoRef}/> 
                         ) : (
                             <p>No video available for this section.</p>
                         )}
