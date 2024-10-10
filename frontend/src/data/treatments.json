@@ -5,62 +5,105 @@
       "sections": [
         {
           "section": "Introduction",
-          "content": " The goal of this document or tool is to provide you with general information regarding treatment with a fixed dental prosthesis. Your dentist will be able to identify the specific benefits, risks, and/or alternative treatment options that apply to you",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": " The goal of this document or tool is to provide you with general information regarding treatment with a fixed dental prosthesis. Your dentist will be able to identify the specific benefits, risks, and/or alternative treatment options that apply to you"
+          "content": "The purpose of this intervention is to offer you basic information on fixed prosthodontic treatment. Your dentist will be able to identify the specific benefits, risks, and/or alternative treatment options that apply to you.",
+          "videoUrl": "videos/Intro/Introduction.mp4",
+          "audioText": "The purpose of this intervention is to offer you basic information on fixed prosthodontic treatment. Your dentist will be able to identify the specific benefits, risks, and/or alternative treatment options that apply to you."
         },
         {
-          "section": "What is a fixed dental prosthesis?",
-          "content": "It is a dental treatment that uses artificial replicas to replace part of a tooth or a missing tooth and it is attached permanently to the occurring tooth or teeth.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "It is a dental treatment that uses artificial replicas to replace part of a tooth or a missing tooth and it is attached permanently to the occurring tooth or teeth."
+          "section": "What is a fixed prosthodontic treatment?",
+          "content": "It is a type of dental treatment in which artificial teeth are used to replace a part of a tooth or a missing tooth or teeth and are fixed to the existing tooth or teeth. The artificial tooth may be supported by a natural tooth or teeth or implant(s)- a nail-like metal inserted in the jaw bone. They include implants, crowns, bridges, and veneers.",
+          "videoUrl": "videos/Intro2.Whatisfixedprosthodontictreatmentvoice.mp4",
+          "audioText": "It is a type of dental treatment in which artificial teeth are used to replace a part of a tooth or a missing tooth or teeth and are fixed to the existing tooth or teeth. The artificial tooth may be supported by a natural tooth or teeth or implant(s)- a nail-like metal inserted in the jaw bone. They include implants, crowns, bridges, and veneers."
         },
         {
-          "section": "What is a crown dental crown?",
-          "content": "A crown is a restoration that covers or caps the tooth, restoring it to its natural size, shape, color, and function.",
+          "section": "What is a dental crown? ",
+          "content": "It is a type of restoration that covers a damaged or deformed tooth and restores it to its natural size, shape, color, and function.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "A crown is a restoration that covers or caps the tooth, restoring it to its natural size, shape, color, and function."
+          "audioText": "It is a type of restoration that covers a damaged or deformed tooth and restores it to its natural size, shape, color, and function."
         },
         {
-          "section": "What is a bridge?",
-          "content": "A dental bridge are artificial teeth that replaces a person's missing tooth or teeth and it’s fixed on occurring tooth or teeth.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "A dental bridge are artificial teeth that replaces a person's missing tooth or teeth and it’s fixed on occurring tooth or teeth."
-        }
+          "section": "Reasons for the treatment with a crown",
+          "content": "There are many indications for a crown including: • To strengthen a tooth, for example a root canal-treated tooth, a cracked tooth, or a tooth with large fillings; • To improve appearance (e.g. colour or shape); and • To improve function.",
+          "videoUrl": "videos/crown_reasons.mp4",
+          "audioText": "There are many indications for a crown including: to strengthen a tooth, for example a root canal-treated tooth, a cracked tooth, or a tooth with large fillings; to improve appearance, such as improving the colour or shape; and to improve function."
+        },
+        {
+          "section": "What is a bridge? ",
+          "content": "It is a type of restoration that replaces missing tooth or teeth and it is fixed on occurring natural tooth or teeth or an implant (nail-like metals inserted in the jaw bone).",
+          "videoUrl": "videos/crown_reasons.mp4",
+          "audioText": "It is a type of restoration that replaces missing tooth or teeth and it is fixed on occurring natural tooth or teeth or an implant (nail-like metals inserted in the jaw bone)."
+        },
+        {
+          "section": "Reasons for the treatment with a bridge",
+          "content": "There are many indications for a bridgework, including: • To replace a missing tooth/teeth; • To improve appearance (e.g. colour or shape); and • To improve function.",
+          "videoUrl": "videos/bridge_reasons.mp4",
+          "audioText": "There are many indications for a bridgework, including: to replace a missing tooth or teeth, to improve appearance such as colour or shape, and to improve function."
+        },
+        {
+          "section": "What is a supporting tooth?",
+          "content": "It is a tooth that supports the crown or bridge, unto which it is cemented. In the case of a dental bridge, the supporting or abutment teeth are commonly the two adjacent teeth or implants that support the bridge while for a crown, it is the tooth to be crowned.",
+          "videoUrl": "videos/bridge_reasons.mp4",
+          "audioText": "It is a tooth that supports the crown or bridge, unto which it is cemented. In the case of a dental bridge, the supporting or abutment teeth are commonly the two adjacent teeth or implants that support the bridge while for a crown, it is the tooth to be crowned."
+        }              
       ]
     },
     {
-      "title": "Reasons",
+
+      "title": "Procedure",
       "sections": [
         {
-          "section": "Reasons for the treatment with a crown or bridge",
-          "content": "There are many indications for a crown or bridge, including- ",
+          "section": "Number of visits",
+          "content": "For this treatment, you might need two or more appointments.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "There are many indications for a crown or bridge, including- "
+          "audioText": "For this treatment, you might need two or more appointments."
         },
         {
-          "section": "Common Reasons for treatment with a crown or bridge",
-          "content": "To strengthen a tooth for example a root canal-treated tooth, a cracked tooth, or a tooth with large fillings, ",
+          "section": "Initial visit- Record the tooth color,",
+          "content": "During the initial visit, the dentist will record the tooth colour, ",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "To strengthen a tooth for example a root canal-treated tooth, a cracked tooth, or a tooth with large fillings, "
+          "audioText": "During the initial visit, the dentist will record the tooth colour,"
         },
         {
-          "section": "Other Reasons for treatment with a crown or bridge",
-          "content": "To improve appearance, and",
+          "section": "Initial visit- Local anesthesia",
+          "content": "The dentist may then administer local anesthetic in an injection to numb the teeth and surrounding gum.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "To improve appearance, and"
+          "audioText": "The dentist may then administer local anesthetic in an injection to numb the teeth and surrounding gum."
         },
         {
-          "section": "Other Reasons for treatment with a crown or bridge",
-          "content": "To improve function",
+          "section": "Initial visit- Trim the supporting tooth",
+          "content": "Then, a portion of the crown of an existing natural tooth/or teeth will be trimmed to create space for the crown or bridge using a dental drill,  ",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "To improve function"
+          "audioText": "Then, a portion of the crown of an existing natural tooth/or teeth will be trimmed to create space for the crown or bridge using a dental drill,"
         },
         {
-          "section": "Other Reasons for treatment with a crown or bridge",
-          "content": "To replace a missing tooth orteeth.",
+          "section": "Initial visit- Taking measurements",
+          "content": "and then, take measurements of the trimmed tooth/teeth and surrounding gum for the fabrication of a model. The measurements of the teeth may be made before and after tooth preparation, to help in the design of temporary and final crown or bridge. Measurements may be done using a scan.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "To replace a missing tooth or teeth."
+          "audioText": "and then, take measurements of the trimmed tooth/teeth and surrounding gum for the fabrication of a model. The measurements of the teeth may be made before and after tooth preparation, to help in the design of temporary and final crown or bridge. Measurements may be done using a scan."
+        },
+        {
+          "section": "Placement of temporary crown or bridge",
+          "content": "Following the trimming of a tooth, a temporary crown or bridge will be placed to protect the trimmed tooth while you wait for the final crown or bridge.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Following the trimming of a tooth, a temporary crown or bridge will be placed to protect the trimmed tooth while you wait for the final crown or bridge."
+        },
+        {
+          "section": "Placement of temporary crown or bridge",
+          "content": "Following the trimming of a tooth, a temporary crown or bridge will be placed to protect the trimmed tooth while you wait for the final crown or bridge.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Following the trimming of a tooth, a temporary crown or bridge will be placed to protect the trimmed tooth while you wait for the final crown or bridge."
+        },
+        {
+          "section": "Placing the final crown",
+          "content": "At the next visit, when the final crown or bridge is ready, the dentist will remove the temporary crown, try in the final crown or bridge, and then permanently cement it on the trimmed tooth/teeth.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "At the next visit, when the final crown or bridge is ready, the dentist will remove the temporary crown, try in the final crown or bridge, and then permanently cement it on the trimmed tooth/teeth."
+        },
+        {
+          "section": "Maintenance /follow-up instruction:",
+          "content": "You should maintain good oral hygiene and have periodic dental check-ups after your crown or bridge is permanently fixed on the trimmed tooth or teeth.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "You should maintain good oral hygiene and have periodic dental check-ups after your crown or bridge is permanently fixed on the trimmed tooth or teeth."
         }
       ]
     },
@@ -68,52 +111,40 @@
       "title": "Benefits",
       "sections": [
         {
-          "section": "Benefits of crowns/bridge",
-          "content": "The crown or bridge protects the tooth/teeth from breaking or if the tooth was heavily filled it will prevent further breakdown.",
+          "section": "Prevent tooth from breaking",
+          "content": "The crown or bridge protects the tooth or teeth from breaking. ",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "The crown or bridge protects the tooth/teeth from breaking or if the tooth was heavily filled it will prevent further breakdown."
+          "audioText": "The crown or bridge protects the tooth or teeth from breaking. "
         },
         {
-          "section": "Benefits of crowns/bridge",
-          "content": "The crown or bridge may improve the way you bite and chew food.",
+          "section": "Improve oral function",
+          "content": "Crowns and bridges may improve oral functions such as smiling, speaking, and smiling, chewing.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "The crown or bridge may improve the way you bite and chew food."
+          "audioText": "Crowns and bridges may improve oral functions such as smiling, speaking, and smiling, chewing"
         },
         {
-          "section": "Benefits of crowns/bridge",
-          "content": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene.",
+          "section": "Function for a long time",
+          "content": "A crown or bridge can remain functional for a long time, but may not last forever.  ( video, continue chewing)",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "By removing a damaged or decayed tooth, you protect the integrity of your remaining teeth and support better oral hygiene."
+          "audioText": "A crown or bridge can remain functional for a long time, but may not last forever.  ( video, continue chewing)"
         },
         {
-          "section": "Benefits of crowns/bridge",
+          "section": "Able to eat a wide variety of foods",
           "content": "With the crown or bridge in place, you can eat a wide range of foods except for very hard foods. ",
           "videoUrl": "videos/intro.mp4",
           "audioText": "With the crown or bridge in place, you can eat a wide range of foods except for very hard foods. "
         },
         {
-          "section": "Benefits of crowns/bridge",
-          "content": "With the crown or bridge in place, you can eat a wide range of foods except for very hard foods. ",
+          "section": "Permanently cemented",
+          "content": "The patient does not have to periodically remove the crown or bridge because it is permanently cemented onto the existing natural tooth or teeth or an implant.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "With the crown or bridge in place, you can eat a wide range of foods except for very hard foods. "
+          "audioText": "The patient does not have to periodically remove the crown or bridge because it is permanently cemented onto the existing natural tooth or teeth or an implant."
         },
         {
-          "section": "Benefits of crowns/bridge",
-          "content": "A crown can remain functional for a long period but may not last a lifetime.",
+          "section": "Other benefits of crowns and bridges",
+          "content": "Depending on the specific dental problem, crowns or bridges can have other benefits, such as improving the shape or color of the natural tooth, and may lead to improvement in self-esteem.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "A crown can remain functional for a long period but may not last a lifetime."
-        },
-        {
-          "section": "Benefits of crowns/bridge",
-          "content": "The patient does not have to periodically remove the crown or bridge because it is cemented onto the remaining tooth or teeth ",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "The patient does not have to periodically remove the crown or bridge because it is cemented onto the remaining tooth or teeth "
-        },
-        {
-          "section": "Benefits of crowns/bridge",
-          "content": "Depending on the particular dental problem, crowns or bridges can have other benefits, such as improving the shape or color of the natural tooth. ",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "Depending on the particular dental problem, crowns or bridges can have other benefits, such as improving the shape or color of the natural tooth. "
+          "audioText": "Depending on the specific dental problem, crowns or bridges can have other benefits, such as improving the shape or color of the natural tooth, and may lead to improvement in self-esteem."
         }
       ]
     },
@@ -121,46 +152,46 @@
       "title": "Risks",
       "sections": [
         {
-          "section": "Risk related to anesthesia",
-          "content": "Risks associated with receiving local anesthesia include; pain, anxiety, and even the resultant numbness of the tongue, and/or facial tissues which is usually temporary. At times there may be swelling, or jaw muscle tenderness. ",
+          "section": "Risks of anesthesia",
+          "content": "Local anesthetic injection may cause pain, anxiety, and temporary numbness of the tongue and face tissues. There may be allergic reactions, swelling, or pain in the jaw muscles.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "Risks associated with receiving local anesthesia include; pain, anxiety, and even the resultant numbness of the tongue, and/or facial tissues which is usually temporary. At times there may be swelling, or jaw muscle tenderness. "
+          "audioText": "Local anesthetic injection may cause pain, anxiety, and temporary numbness of the tongue and face tissues. There may be allergic reactions, swelling, or pain in the jaw muscles. "
         },
         {
-          "section": "Reduction of the tooth structure",
-          "content": "It is necessary to reduce the existing tooth or teeth to place the crowns and/or bridge. The tooth reduction is irreversible",
+          "section": "Possibility of pain",
+          "content": "Pain may occur during the procedure or later in the gums surrounding the trimmed teeth for a few days after tooth trimming.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "It is necessary to reduce the existing tooth or teeth to place the crowns and/or bridge. The tooth reduction is irreversible."
+          "audioText": "Pain may occur during the procedure or later in the gums surrounding the trimmed teeth for a few days after tooth trimming."
         },
         {
-          "section": "Sensitivity of vital abutment teeth",
+          "section": "Temporary altering of speech",
           "content": " The teeth may exhibit mild to severe sensitivity after tooth preparation, if the crowns are to be made for vital teeth This sensitivity may last only for a short time or may last for much longer periods. If it is persistent, notify the dentist. ",
           "videoUrl": "videos/intro.mp4",
           "audioText": " The teeth may exhibit mild to severe sensitivity after tooth preparation, if the crowns are to be made for vital teeth This sensitivity may last only for a short time or may last for much longer periods. If it is persistent, notify the dentist. "
         },
         {
+          "section": "Uncomfortable or strange feeling",
+          "content": "Immediately after permanent cementation, it is common to feel a little uneasy with the crown or experience some slight changes in your mouth. Usually, this lasts for a short time.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "Immediately after permanent cementation, it is common to feel a little uneasy with the crown or experience some slight changes in your mouth. Usually, this lasts for a short time."
+        },
+        {
+          "section": "Sensitivity of vital abutment teeth",
+          "content": "If the trimmed teeth are vital, you may experience mild to severe thermal or tactile sensitivity following trimming. This sensitivity could remain for a short time or much longer. If it persists, contact the dentist.",
+          "videoUrl": "videos/intro.mp4",
+          "audioText": "If the trimmed teeth are vital, you may experience mild to severe thermal or tactile sensitivity following trimming. This sensitivity could remain for a short time or much longer. If it persists, contact the dentist."
+        },
+        {
           "section": "Risk of having to do root canal treatment for abutment teeth",
-          "content": "If the tooth to be crowned is vital, it may need to be root canal treated. The need for root canal therapy may become apparent during tooth preparation or after a crown or bridge is made when the tooth becomes non-vital. ",
+          "content": "Vital teeth may require root canal treatment before crowning. The need for root canal treatment may also become obvious during tooth preparation or after a crown or bridge is made when the tooth becomes non-vital.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": " If the tooth to be crowned is vital, it may need to be root canal treated. The need for root canal therapy may become apparent during tooth preparation or after a crown or bridge is made when the tooth becomes non-vital. "
+          "audioText": "Vital teeth may require root canal treatment before crowning. The need for root canal treatment may also become obvious during tooth preparation or after a crown or bridge is made when the tooth becomes non-vital."
         },
         {
-          "section": "Risk associated with procedure",
-          "content": "The prepared tooth may be affected by crown procedures; for instance, it may break due to tooth reduction, or become non-vital, then it may need root canal treatment in the future.",
+          "section": "Tooth decay and/or gum disease",
+          "content": "The prepared teeth may develop tooth decay and . the gum may also develop an infection.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "The prepared tooth may be affected by crown procedures; for instance, it may break due to tooth reduction, or become non-vital, then it may need root canal treatment in the future. "
-        },
-        {
-          "section": "Temporary altering of speech:",
-          "content": "Your speech may change temporarily after the crown or bridge is cemented until your tongue and lips become used to it. ",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "Your speech may change temporarily after the crown or bridge is cemented until your tongue and lips become used to it. "
-        },
-        {
-          "section": "Feel uncomfortable or strange feeling",
-          "content": "Immediately after cementation, it is common to feel a little uneasy with the crown or experience some slight changes in your mouth. Usually, this lasts for a short time.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "Immediately after cementation, it is common to feel a little uneasy with the crown or experience some slight changes in your mouth. Usually, this lasts for a short time."
+          "audioText": "The prepared teeth may develop tooth decay and . the gum may also develop an infection."
         },
         {
           "section": "Uncomfortable or strange feeling in jaw joints",
@@ -175,57 +206,39 @@
           "audioText": "The prepared teeth may develop tooth decay in case of leakage or ill-fitting crown or bridge margins. "
         },
         {
-          "section": "Failure of the crown",
-          "content": "Sometimes the crown may fail due to leakage, fracture, or fall off.",
+          "section": "Failure of the crown/bridge",
+          "content": "Sometimes the crown or bridge may fail due to leakage, fracture or fall off the supporting the tooth.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "Sometimes the crown may fail due to leakage, fracture, or fall off."
+          "audioText": "Sometimes the crown or bridge may fail due to leakage, fracture or fall off the supporting the tooth."
         },
         {
-          "section": "Possibility of pain",
-          "content": "Possibility of pain during the procedure or painful gums surrounding the prepared teeth for a few days after tooth preparation ",
+          "section": "Re-infection in case of root-canal-filled teeth",
+          "content": "If your tooth is root-canal-filled, there is always the possibility of re-infection of the tooth roots, regardless of whether you have crowns or bridges. This may demand extra treatment for the root canals of the tooth.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "Possibility of pain during the procedure or painful gums surrounding the prepared teeth for a few days after tooth preparation "
-        },
-        {
-          "section": "Re-infection in case of root-filled teeth",
-          "content": "If your tooth is root-filled, there is always the possibility of re-infection of the tooth roots, independent of any crown and/ or bridge work. This may necessitate additional treatment to the root canals of the tooth.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "If your tooth is root-filled, there is always the possibility of re-infection of the tooth roots, independent of any crown and/ or bridge work. This may necessitate additional treatment to the root canals of the tooth."
+          "audioText": "If your tooth is root-canal-filled, there is always the possibility of re-infection of the tooth roots, regardless of whether you have crowns or bridges. This may demand extra treatment for the root canals of the tooth."
         }
       ]
     },
     {
-      "title": "Procedure",
+      "title": "Alternative Treatments",
       "sections": [
         {
-          "section": "Summary of treatment procedures",
-          "content": "For this treatment, you might need two or three appointments. At the initial visit, the dentist will take the tooth/teeth shade, begin tooth preparations, and thereafter take measurements of the prepared tooth/teeth and its surrounding teeth. Following tooth preparation, a temporary crown or bridge will be made to preserve the prepared tooth while you wait for the permanent crown or bridge. At the next visit when the final crown or bridge is ready, the dentist will remove the temporary crown, try in the final crown or bridge, and then cement it. ",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "For this treatment, you might need two or three appointments. At the initial visit, the dentist will take the tooth/teeth shade, begin tooth preparations, and thereafter take measurements of the prepared tooth/teeth and its surrounding teeth. Following tooth preparation, a temporary crown or bridge will be made to preserve the prepared tooth while you wait for the permanent crown or bridge. At the next visit when the final crown or bridge is ready, the dentist will remove the temporary crown, try in the final crown or bridge, and then cement it."
+          "section": "Alternative treatment options",
+          "content": "There may be several treatment options for the management of your dental problem. Your dentist will tell you the alternative treatment options that apply to your condition. Each alternative treatment has its advantages and limitations. The options may include: • Partial coverage restoration or veneer; • Removal of the tooth and replacement with an implant; • Removal of the tooth and replacement with a removable denture; • No treatment at all.",
+          "videoUrl": "videos/alternative_treatment.mp4",
+          "audioText": "There may be several treatment options for the management of your dental problem. Your dentist will tell you the alternative treatment options that apply to your condition. Each alternative treatment has its advantages and limitations. The options may include: • Partial coverage restoration or veneer; • Removal of the tooth and replacement with an implant; • Removal of the tooth and replacement with a removable denture; • No treatment at all."
         },
         {
-          "section": "Local anesthesia",
-          "content": "It is necessary to numb the tooth or teeth during tooth preparation. This is done by the dentist administering local anesthesia using an injection.",
+          "section": "Alternative materials for crowns and bridges",
+          "content": "Crowns and bridges can be made from a variety of materials, which may be tooth-colored or metallic. These materials have different advantages and disadvantages, which your dentist should inform you of.",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "It is necessary to numb the tooth or teeth during tooth preparation. This is done by the dentist administering local anesthesia using an injection."
+          "audioText": "Crowns and bridges can be made from a variety of materials, which may be tooth-colored or metallic. These materials have different advantages and disadvantages, which your dentist should inform you of."
         },
         {
-          "section": "Taking measurements of the teeth",
-          "content": "The dentist will take measurements before and after tooth preparation, to help in the design of temporary and final crowns. ",
+          "section": "Acknowledgments",
+          "content": "",
           "videoUrl": "videos/intro.mp4",
-          "audioText": "The dentist will take measurements before and after tooth preparation, to help in the design of temporary and final crowns. "
-        },
-        {
-          "section": "Tooth preparation",
-          "content": "A portion of the tooth/or teeth will be cut to create space for the crown or bridge using a dental drill.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "A portion of the tooth/or teeth will be cut to create space for the crown or bridge using a dental drill."
-        },
-        {
-          "section": "Maintenance /follow-up instruction",
-          "content": "You should maintain good oral hygiene and have routine dental check-ups following crown placement.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "You should maintain good oral hygiene and have routine dental check-ups following crown placement."
+          "audioText": ""
         }
       ]
     }
@@ -279,46 +292,6 @@
           "content": "There is a small risk that the procedure could damage neighboring teeth or structures in the mouth.",
           "videoUrl": "videos/risks.mp4",
           "audioText": "There is a small risk that the procedure could damage neighboring teeth or structures in the mouth."
-        }
-      ]
-    },
-    {
-      "title": "Procedure",
-      "sections": [
-        {
-          "section": "Initial Examination",
-          "content": "Your dentist will examine your tooth using X-rays and determine if a root canal is necessary.",
-          "videoUrl": "videos/procedure.mp4",
-          "audioText": "Your dentist will examine your tooth using X-rays and determine if a root canal is necessary."
-        },
-        {
-          "section": "Removing the Pulp",
-          "content": "The dentist will make an opening in the tooth to access and remove the infected pulp.",
-          "videoUrl": "videos/procedure.mp4",
-          "audioText": "The dentist will make an opening in the tooth to access and remove the infected pulp."
-        },
-        {
-          "section": "Filling and Sealing",
-          "content": "After cleaning the root canals, they are filled with a special material and sealed to prevent future infection.",
-          "videoUrl": "videos/procedure.mp4",
-          "audioText": "After cleaning the root canals, they are filled with a special material and sealed to prevent future infection."
-        },
-        {
-          "section": "Restoration",
-          "content": "A crown or filling is placed on the tooth to restore its function and appearance.",
-          "videoUrl": "videos/procedure.mp4",
-          "audioText": "A crown or filling is placed on the tooth to restore its function and appearance."
-        }
-      ]
-    },
-    {
-      "title": "Procedure",
-      "sections": [
-        {
-          "section": "Root Canal Procedure",
-          "content": "The procedure involves removing the pulp, cleaning the inside of the tooth, and sealing it. The tooth is then restored with a crown.",
-          "videoUrl": "videos/intro.mp4",
-          "audioText": "The procedure involves removing the pulp, cleaning the inside of the tooth, and sealing it. The tooth is then restored with a crown."
         }
       ]
     }
